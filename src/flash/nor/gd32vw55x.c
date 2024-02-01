@@ -27,70 +27,70 @@
 #define GET_BITS(regval, start, end)    (((regval) & BITS((start), (end))) >> (start))
 
 /* FMC and option byte definition */
-#define FMC_BASE                         0x40022000                /*!< FMC register base address */
+#define FMC_BASE                         0x40022000
 
 /* registers definitions */
-#define FMC_WS                           0x40022000                /*!< FMC wait state register */
-#define FMC_KEY                          0x40022004                /*!< FMC unlock key register */
-#define FMC_OBKEY                        0x40022008                /*!< FMC option bytes unlock key register */
-#define FMC_STAT                         0x4002200C                /*!< FMC status register */
-#define FMC_CTL                          0x40022010                /*!< FMC control register */
-#define FMC_ADDR                         0x40022014                /*!< FMC address register */
-#define FMC_OBSTAT                       0x4002201C                /*!< FMC option bytes status register */
-#define FMC_OBR                          0x40022040                /*!< FMC option byte register */
-#define FMC_OBUSER                       0x40022044                /*!< FMC option byte user register */
-#define FMC_OBWRP0                       0x40022048                /*!< FMC option byte write protection area register 0 */
-#define FMC_OBWRP1                       0x4002204C                /*!< FMC option byte write protection area register 1 */
-#define FMC_PID0                         0x40022100                /*!< FMC product ID0 register */
-#define FMC_PID1                         0x40022104                /*!< FMC product ID1 register */
+#define FMC_WS                           0x40022000
+#define FMC_KEY                          0x40022004
+#define FMC_OBKEY                        0x40022008
+#define FMC_STAT                         0x4002200C
+#define FMC_CTL                          0x40022010
+#define FMC_ADDR                         0x40022014
+#define FMC_OBSTAT                       0x4002201C
+#define FMC_OBR                          0x40022040
+#define FMC_OBUSER                       0x40022044
+#define FMC_OBWRP0                       0x40022048
+#define FMC_OBWRP1                       0x4002204C
+#define FMC_PID0                         0x40022100
+#define FMC_PID1                         0x40022104
 
 /* FMC_STAT */
-#define FMC_STAT_BUSY                     BIT(0)                   /*!< flash busy flag bit */
-#define FMC_STAT_WPERR                    BIT(4)                   /*!< flash write protection error flag bit */
-#define FMC_STAT_ENDF                     BIT(5)                   /*!< end of operation flag bit */
+#define FMC_STAT_BUSY                     BIT(0)
+#define FMC_STAT_WPERR                    BIT(4)
+#define FMC_STAT_ENDF                     BIT(5)
 
 /* FMC_CTL */
-#define FMC_CTL_PG                        BIT(0)                   /*!< main flash program command bit */
-#define FMC_CTL_PER                       BIT(1)                   /*!< main flash page erase bit */
-#define FMC_CTL_MER                       BIT(2)                   /*!< main flash mass erase bit */
-#define FMC_CTL_OBPG                      BIT(4)                   /*!< option bytes program command bit */
-#define FMC_CTL_OBER                      BIT(5)                   /*!< option bytes erase command bit */
-#define FMC_CTL_START                     BIT(6)                   /*!< send erase command to FMC bit */
-#define FMC_CTL_LK                        BIT(7)                   /*!< flash lock bit */
-#define FMC_CTL_OBWEN                     BIT(9)                   /*!< option bytes erase/program enable bit */
-#define FMC_CTL_ERRIE                     BIT(10)                  /*!< error interrupt enable bit */
-#define FMC_CTL_ENDIE                     BIT(12)                  /*!< end of operation interrupt enable bit */
-#define FMC_CTL_OBSTART                   BIT(14)                  /*!< option bytes modification start */
-#define FMC_CTL_OBRLD                     BIT(15)                  /*!< option bytes reload */
+#define FMC_CTL_PG                        BIT(0)
+#define FMC_CTL_PER                       BIT(1)
+#define FMC_CTL_MER                       BIT(2)
+#define FMC_CTL_OBPG                      BIT(4)
+#define FMC_CTL_OBER                      BIT(5)
+#define FMC_CTL_START                     BIT(6)
+#define FMC_CTL_LK                        BIT(7)
+#define FMC_CTL_OBWEN                     BIT(9)
+#define FMC_CTL_ERRIE                     BIT(10)
+#define FMC_CTL_ENDIE                     BIT(12)
+#define FMC_CTL_OBSTART                   BIT(14)
+#define FMC_CTL_OBRLD                     BIT(15)
 
 /* FMC_OBSTAT */
-#define FMC_OBSTAT_SPC                    BIT(1)                   /*!< flash security protection level 1 state */
-#define FMC_OBSTAT_WP                     BIT(2)                   /*!< flash write / erase protection state, EFUSE config 32k write protection */
+#define FMC_OBSTAT_SPC                    BIT(1)
+#define FMC_OBSTAT_WP                     BIT(2)
 
 /* FMC_OBR */
-#define FMC_OBR_SPC                       BITS(0,7)                /*!< option bytes security protection code */
-#define FMC_OBR_NWDG_HW                   BIT(9)                   /*!< option bytes NWDG_HW, watchdog status function */
-#define FMC_OBR_NRST_STDBY                BIT(10)                  /*!< option bytes NRST_STDBY, no reset generated when entering Standby mode*/
-#define FMC_OBR_NSRT_DPSLP                BIT(11)                  /*!< option bytes NRST_DPSLP, no reset generated when entering Deepsleep mode*/
-#define FMC_OBR_SRAM1_RST                 BIT(12)                  /*!< option bytes SRAM1 erase when system reset */
+#define FMC_OBR_SPC                       BITS(0, 7)
+#define FMC_OBR_NWDG_HW                   BIT(9)
+#define FMC_OBR_NRST_STDBY                BIT(10)
+#define FMC_OBR_NSRT_DPSLP                BIT(11)
+#define FMC_OBR_SRAM1_RST                 BIT(12)
 
 /* FMC_OBUSER */
-#define FMC_OBUSER_USER                   BITS(0,31)               /*!< option bytes user value */
+#define FMC_OBUSER_USER                   BITS(0, 31)
 
 /* FMC_OBWRP0 */
-#define FMC_OBWRP0_WRP0_SPAGE             BITS(0,9)                /*!< start page of write protection area 0 */
-#define FMC_OBWRP0_WRP0_EPAGE             BITS(16,25)              /*!< end page of write protection area 0 */
+#define FMC_OBWRP0_WRP0_SPAGE             BITS(0, 9)
+#define FMC_OBWRP0_WRP0_EPAGE             BITS(16, 25)
 
 /* FMC_OBWRP1 */
-#define FMC_OBWRP1_WRP1_SPAGE             BITS(0,9)                /*!< start page of write protection area 1 */
-#define FMC_OBWRP1_WRP1_EPAGE             BITS(16,25)              /*!< end page of write protection area 1 */
+#define FMC_OBWRP1_WRP1_SPAGE             BITS(0, 9)
+#define FMC_OBWRP1_WRP1_EPAGE             BITS(16, 25)
 
 /* unlock keys */
 #define UNLOCK_KEY0                       0x45670123
 #define UNLOCK_KEY1                       0xCDEF89AB
 
 /* read protect configuration */
-#define FMC_NSPC                          ((uint8_t)0xAAU)       /*!< no security protection */
+#define FMC_NSPC                          ((uint8_t)0xAAU)
 
 /* FMC time out */
 #define FMC_TIMEOUT_COUNT                  0x01000000
@@ -187,11 +187,9 @@ static int gd32vw55x_ready_wait(struct flash_bank *bank, int timeout)
 	return retval;
 }
 
-
 static int gd32vw55x_ob_get(struct flash_bank *bank)
 {
 	uint32_t fmc_obstat_reg, fmc_obwrp1_reg, fmc_obwrp0_reg, fmc_obuser_reg, fmc_obr_reg;
-	uint16_t ob_spc;
 
 	struct gd32vw55x_flash_bank *gd32vw55x_info = NULL;
 	struct target *target = bank->target;
@@ -218,11 +216,10 @@ static int gd32vw55x_ob_get(struct flash_bank *bank)
 	gd32vw55x_info->option_bytes.user = fmc_obuser_reg;
 	gd32vw55x_info->option_bytes.spc = (uint8_t)(fmc_obr_reg & 0xFF);
 
-	if (fmc_obstat_reg & (BIT(1))) {
+	if (fmc_obstat_reg & (BIT(1)))
 		LOG_INFO("GD32: Get option bytes ... device level 1 protection bit set");
-	} else {
+	else
 		LOG_INFO("GD32: Get option bytes ... device no protection level bit set");
-	}
 
 	/* each bit refers to a page protection */
 	retval = target_read_u32(target, FMC_OBWRP0, &fmc_obwrp0_reg);
@@ -239,11 +236,10 @@ static int gd32vw55x_ob_get(struct flash_bank *bank)
 	gd32vw55x_info->option_bytes.wrp[0] = fmc_obwrp0_reg;
 	gd32vw55x_info->option_bytes.wrp[1] = fmc_obwrp1_reg;
 
-	if (fmc_obstat_reg & (BIT(2))) {
+	if (fmc_obstat_reg & (BIT(2)))
 		LOG_INFO("GD32: Get option bytes ... device erase\program protection bit set");
-	} else {
+	else
 		LOG_INFO("GD32: Get option bytes ... device no erase\program protection bit set");
-	}
 
 	return ERROR_OK;
 }
@@ -436,29 +432,29 @@ static int gd32vw55x_protect_check(struct flash_bank *bank)
 
 	/* flash write/erase protection */
 	if (((fmc_obwrp0_reg & 0xFFFF0000) >> 16) >= (fmc_obwrp0_reg & 0xFFFF)) {
-        for (i = 0; i < num_bits; i++) {
-            if (((fmc_obwrp0_reg & 0xFFFF) <= i) && (i <= ((fmc_obwrp0_reg & 0xFFFF0000) >> 16))) {
-                set0 = 1;
-                bank->sectors[i].is_protected = set0;
-            } else {
-                set0 = 0;
-                bank->sectors[i].is_protected = set0;
-            }
-        }
+		for (i = 0; i < num_bits; i++) {
+			if (((fmc_obwrp0_reg & 0xFFFF) <= i) && (i <= ((fmc_obwrp0_reg & 0xFFFF0000) >> 16))) {
+				set0 = 1;
+				bank->sectors[i].is_protected = set0;
+			} else {
+				set0 = 0;
+				bank->sectors[i].is_protected = set0;
+			}
+		}
 	}
 	if ((((fmc_obwrp1_reg & 0xFFFF0000) >> 16) >= (fmc_obwrp1_reg & 0xFFFF))) {
-        for (i = 0; i < num_bits; i++) {
-            if (((fmc_obwrp1_reg & 0xFFFF) <= i) && (i <= ((fmc_obwrp1_reg & 0xFFFF0000) >> 16))) {
-                set1 = 1;
-                set = bank->sectors[i].is_protected;
-                bank->sectors[i].is_protected = set || set1;
-            } else {
-                set1 = 0;
-                set = bank->sectors[i].is_protected;
-                bank->sectors[i].is_protected = set || set1;
-            }
-        }
-    }
+		for (i = 0; i < num_bits; i++) {
+			if (((fmc_obwrp1_reg & 0xFFFF) <= i) && (i <= ((fmc_obwrp1_reg & 0xFFFF0000) >> 16))) {
+				set1 = 1;
+				set = bank->sectors[i].is_protected;
+				bank->sectors[i].is_protected = set || set1;
+			} else {
+				set1 = 0;
+				set = bank->sectors[i].is_protected;
+				bank->sectors[i].is_protected = set || set1;
+			}
+		}
+	}
 
 	return ERROR_OK;
 }
@@ -556,16 +552,15 @@ static int gd32vw55x_protect(struct flash_bank *bank, int set, unsigned int firs
 	if (retval != ERROR_OK)
 		return retval;
 
-	if(set)
+	if (set)
 		fmc_obwrp0_reg = (last << 16) + first;
 	else
 		fmc_obwrp0_reg = 0x000003ff;
 	fmc_obwrp1_reg = 0x000003ff;
 
 	status = gd32vw55x_ob_erase(bank);
-	if (status != ERROR_OK) {
+	if (status != ERROR_OK)
 		return status;
-	}
 
 	wrp_tmp[0] = fmc_obwrp0_reg;
 	wrp_tmp[1] = fmc_obwrp1_reg;
@@ -588,13 +583,13 @@ static int gd32vw55x_write_block(struct flash_bank *bank, const uint8_t *buffer,
 	int retval = ERROR_OK;
 
 	static const uint8_t gd32vw55x_flash_write_code[] = {
-    0x6f,0x00,0x80,0x00,0x73,0x00,0x10,0x00,0x03,0x2b,0x06,0x00,0x63,0x0c,0x0b,0x04,
-    0x83,0x2a,0x46,0x00,0xb3,0x87,0x6a,0x41,0xe3,0x88,0x07,0xfe,0x03,0xab,0x0a,0x00,
-    0x23,0x20,0x67,0x01,0x93,0x8a,0x4a,0x00,0x13,0x07,0x47,0x00,0x83,0x2b,0xc5,0x00,
-    0x93,0xf7,0x1b,0x00,0xe3,0x9c,0x07,0xfe,0x93,0xf7,0x4b,0x01,0x63,0x90,0x07,0x02,
-    0x63,0xe6,0xda,0x00,0x93,0x0a,0x06,0x00,0x93,0x8a,0x8a,0x00,0x23,0x22,0x56,0x01,
-    0x93,0x85,0xf5,0xff,0x63,0x88,0x05,0x00,0x6f,0xf0,0x1f,0xfb,0x13,0x05,0x00,0x00,
-    0x23,0x22,0xa6,0x00,0x13,0x85,0x0b,0x00,0x6f,0xf0,0xdf,0xf9};
+0x6f, 0x00, 0x80, 0x00, 0x73, 0x00, 0x10, 0x00, 0x03, 0x2b, 0x06, 0x00 , 0x63, 0x0c, 0x0b, 0x04,
+0x83, 0x2a, 0x46, 0x00, 0xb3, 0x87, 0x6a, 0x41, 0xe3, 0x88, 0x07, 0xfe , 0x03, 0xab, 0x0a, 0x00,
+0x23, 0x20, 0x67, 0x01, 0x93, 0x8a, 0x4a, 0x00, 0x13, 0x07, 0x47, 0x00 , 0x83, 0x2b, 0xc5, 0x00,
+0x93, 0xf7, 0x1b, 0x00, 0xe3, 0x9c, 0x07, 0xfe, 0x93, 0xf7, 0x4b, 0x01 , 0x63, 0x90, 0x07, 0x02,
+0x63, 0xe6, 0xda, 0x00, 0x93, 0x0a, 0x06, 0x00, 0x93, 0x8a, 0x8a, 0x00 , 0x23, 0x22, 0x56, 0x01,
+0x93, 0x85, 0xf5, 0xff, 0x63, 0x88, 0x05, 0x00, 0x6f, 0xf0, 0x1f, 0xfb , 0x13, 0x05, 0x00, 0x00,
+0x23, 0x22, 0xa6, 0x00, 0x13, 0x85, 0x0b, 0x00, 0x6f, 0xf0, 0xdf, 0xf9};
 
 	/* flash write code */
 	if (target_alloc_working_area(target, sizeof(gd32vw55x_flash_write_code),
@@ -904,9 +899,9 @@ COMMAND_HANDLER(gd32vw55x_handle_lock_command)
 
 	/* set security protection */
 	gd32vw55x_info->option_bytes.spc = 0;
-    target_read_u32(target, FMC_OBWRP0, &(gd32vw55x_info->option_bytes.wrp[0]));
-    target_read_u32(target, FMC_OBWRP1, &(gd32vw55x_info->option_bytes.wrp[1]));
-    target_read_u32(target, FMC_OBUSER, &(gd32vw55x_info->option_bytes.user));
+	target_read_u32(target, FMC_OBWRP0, &(gd32vw55x_info->option_bytes.wrp[0]));
+	target_read_u32(target, FMC_OBWRP1, &(gd32vw55x_info->option_bytes.wrp[1]));
+	target_read_u32(target, FMC_OBUSER, &(gd32vw55x_info->option_bytes.user));
 
 	if (gd32vw55x_ob_write(bank) != ERROR_OK) {
 		command_print(CMD, "gd32vw55x failed to lock device");
@@ -941,10 +936,10 @@ COMMAND_HANDLER(gd32vw55x_handle_unlock_command)
 	}
 
 	/* set no security protection */
-	gd32vw55x_info->option_bytes.spc = FMC_NSPC;  
-    target_read_u32(target, FMC_OBWRP0, &(gd32vw55x_info->option_bytes.wrp[0]));
-    target_read_u32(target, FMC_OBWRP1, &(gd32vw55x_info->option_bytes.wrp[1]));
-    target_read_u32(target, FMC_OBUSER, &(gd32vw55x_info->option_bytes.user));
+	gd32vw55x_info->option_bytes.spc = FMC_NSPC;
+	target_read_u32(target, FMC_OBWRP0, &(gd32vw55x_info->option_bytes.wrp[0]));
+	target_read_u32(target, FMC_OBWRP1, &(gd32vw55x_info->option_bytes.wrp[1]));
+	target_read_u32(target, FMC_OBUSER, &(gd32vw55x_info->option_bytes.user));
 
 	if (gd32vw55x_ob_write(bank) != ERROR_OK) {
 		command_print(CMD, "gd32vw55x failed to lock device");
@@ -1061,27 +1056,23 @@ COMMAND_HANDLER(gd32vw55x_handle_ob_write_command)
 
 	COMMAND_PARSE_NUMBER(u32, CMD_ARGV[2], value);
 
-	if (strcmp("USER", CMD_ARGV[1]) == 0){
+	if (strcmp("USER", CMD_ARGV[1]) == 0) {
 		user = value;
 		gd32vw55x_info->option_bytes.user = user;
 		LOG_INFO("user = value = %x", value);
-	}
-	else if (strcmp("SPC", CMD_ARGV[1]) == 0){
+	} else if (strcmp("SPC", CMD_ARGV[1]) == 0) {
 		spc = value;
 		gd32vw55x_info->option_bytes.spc = spc;
 		LOG_INFO("secmcfg0 = value = %x", value);
-	}
-	else if (strcmp("WRP0", CMD_ARGV[1]) == 0){
+	} else if (strcmp("WRP0", CMD_ARGV[1]) == 0) {
 		obwrp0 = value;
 		gd32vw55x_info->option_bytes.wrp[0] = value;
 		LOG_INFO("WRP0 = value = %x", value);
-	}
-	else if (strcmp("WRP1", CMD_ARGV[1]) == 0){
+	} else if (strcmp("WRP1", CMD_ARGV[1]) == 0) {
 		obwrp1 = value;
 		gd32vw55x_info->option_bytes.wrp[1] = obwrp1;
 		LOG_INFO("WRP1 = value = %x", value);
-	}
-	else
+	} else
 		return ERROR_COMMAND_SYNTAX_ERROR;
 
 	if (gd32vw55x_ob_write(bank) != ERROR_OK) {
